@@ -1,8 +1,4 @@
 package org.linhart.ppj.sem;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.linhart.ppj.sem.entities.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -11,15 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Locale;
 
 @SpringBootApplication
 public class PpjSemApplication {
@@ -30,7 +18,7 @@ public class PpjSemApplication {
 
     private ResponseEntity<String> response;
 
-    @Value("${api_wheather_url_timed}")
+    @Value("${api_weather_url_timed}")
     private String meteorApiUrlCurrent;
 
     @Bean
@@ -39,13 +27,6 @@ public class PpjSemApplication {
         //meteorDataRepository.deleteAll();
         //cityRepository.deleteAll();
         //stateRepository.deleteAll();
-
-
-        LocalDate current_date = LocalDate.now().atStartOfDay().toLocalDate();
-        LocalDate date1day = current_date.minusDays(1);
-        long current_timeUNIX = current_date.atStartOfDay().toEpochSecond(ZoneOffset.UTC);
-        long old_timeUNIX = date1day.atStartOfDay().toEpochSecond(ZoneOffset.UTC);
-
 
         //State cesko = new State("CZ","cesko");
         //State usa = new State("USA","usa");
@@ -102,10 +83,10 @@ public class PpjSemApplication {
         //System.out.println(cityRepository.findAll());
         //System.out.println(meteorDataRepository.findAll());
         //System.out.println(meteorDataRepository.findMeteorDataByCityIDEquals(duchcov));
-        List<MeteorData> results = meteorDataRepository.findByCityIDEqualsAndTimestampBetween(duchcov, old_timeUNIX, current_timeUNIX);
-        for (MeteorData meteorData : results) {
-            System.out.println(meteorData);
-        }
+        //List<MeteorData> results = meteorDataRepository.findByCityIDEqualsAndTimestampBetween(duchcov, old_timeUNIX, current_timeUNIX);
+        //for (MeteorData meteorData : results) {
+        //    System.out.println(meteorData);
+        //}
     };
     }
 
