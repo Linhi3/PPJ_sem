@@ -42,6 +42,9 @@ public class State{
 
     @Override
     public String toString() {
-        return "Jmeno:"  + stateName + "  IsoCode:"+ isoCode;
+        return "State{" +
+                "isoCode='" + isoCode + '\'' +
+                ", stateName='" + stateName + '\'' +
+                '}';
     }
 }

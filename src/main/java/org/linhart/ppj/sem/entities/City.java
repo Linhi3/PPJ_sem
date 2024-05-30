@@ -76,6 +76,12 @@ public class City {
 
     @Override
     public String toString() {
-        return "Nazev:" + name;
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", iso_state=" + stateIso +
+                '}';
     }
 }
