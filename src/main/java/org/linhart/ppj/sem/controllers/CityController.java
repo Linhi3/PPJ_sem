@@ -46,6 +46,9 @@ public class CityController {
     @PutMapping("/cities")
     public String addCity(@RequestParam String stateIso, @RequestParam String cityName){
         State state = stateRepository.findStateByIsoCodeEquals(stateIso);
+        if (state == null){
+            return "Stat nenalezen";
+        }
         String url = ApiGeoLocUrl;
         RestTemplate restTemplate = new RestTemplate();
         ObjectMapper mapper = new ObjectMapper();

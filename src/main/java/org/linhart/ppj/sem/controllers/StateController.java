@@ -38,6 +38,7 @@ public class StateController {
         logger.info("Pridan stat {} [{}]", stateName, stateIso);
         return "Pridan stat "+stateName+" ["+stateIso+"]";
     }
+
     @DeleteMapping("/states")
     public String deleteState(@RequestParam String stateIso){
         State state = stateRepository.findStateByIsoCodeEquals(stateIso);
@@ -48,7 +49,6 @@ public class StateController {
                 meteorDataRepository.deleteAll(data);
                 cityRepository.delete(city);
                 logger.info("Odstraneno mesto {} ze statu {}", city.getName(), state.getIsoCode());
-                return "Odstraneno mesto " + city.getName() + " ze statu " + state.getIsoCode();
             }
             stateRepository.delete(state);
             logger.info("Odstranen stat {} [{}]", state.getStateName(), stateIso);

@@ -23,7 +23,7 @@ public class DataController {
     }
 
     @GetMapping("/data")
-    public String getCities(@RequestParam String stateIso,@RequestParam String cityName){
+    public String getDataAboutCity(@RequestParam String stateIso,@RequestParam String cityName){
         State state = stateRepository.findStateByIsoCodeEquals(stateIso);
         if (state == null) {
             logger.error("Stat nenalezen");
