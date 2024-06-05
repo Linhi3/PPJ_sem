@@ -4,6 +4,7 @@
 
 - Java 17
 - Maven 4.0.0
+- MySQL
 
 ## Body zadání:
  - Použit Maven pro sestavení.
